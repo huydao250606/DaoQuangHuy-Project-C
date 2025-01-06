@@ -1,0 +1,31 @@
+# Project: QLSV
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o functions.o
+LINKOBJ  = main.o functions.o
+LIBS     = -static-libgcc
+INCS     = 
+CXXINCS  = 
+BIN      = QLSV.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+functions.o: functions.c
+	$(CC) -c functions.c -o functions.o $(CFLAGS)
